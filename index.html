@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileUploader</title>
+    <style>
+        /* input {
+            color: blueviolet;
+        } */
+    </style>
+</head>
+<body>
+    <h2>Folder Upload</h2>
+    <h4>Select Folder</h4>
+    <input type="file"  id="file" name="file">
+    <button onclick="upload()" name="submit" >Upload File</button>
+    <h3>Selected Folder</h3>
+    <h4 id="change">Please Choose a folder</h4>
+
+
+</body>
+<script>
+    function upload() {
+    alert("upload this file?")
+    let data = document.getElementById("file").files[0];
+    let entry = document.getElementById("file").files[0];
+    console.log('upload',entry,data)
+    fetch('uploads/' + encodeURIComponent(entry.name), {method:'PUT',body:data});
+    
+    let changed= document.getElementById('change').innerHTML=(file);
+};
+</script>
+</html>
